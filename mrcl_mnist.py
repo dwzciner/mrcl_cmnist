@@ -114,7 +114,7 @@ def main():
     # Using first 963 classes of the omniglot as the meta-training set
     args['classes'] = list(range(10))
     # 3 4 5
-    args['traj_classes'] = list(range(10))
+    args['traj_classes'] = list(range(5,10))
 
     # dataset = df.DatasetFactory.get_dataset(args['dataset'], background=True, train=True, path=args["path"], all=True)
     # dataset_test = df.DatasetFactory.get_dataset(args['dataset'], background=True, train=False, path=args["path"],
