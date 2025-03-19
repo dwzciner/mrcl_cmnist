@@ -129,40 +129,30 @@ class ModelFactory():
             channels = 64
             return [
                 # RLN
-                # 28
+                # [b,c,28,28]
                 {"name": 'conv2d', "adaptation": False, "meta": True,
                  "config": {"out-channels": channels, "in-channels": 3, "kernal": 3, "stride": 2, "padding": 0}},
                 {"name": 'relu'},
-                # 13
-                {"name": 'conv2d', "adaptation": False, "meta": True,
-                 "config": {"out-channels": channels, "in-channels": channels, "kernal": 3, "stride": 1,
-                            "padding": 0}},
-                {"name": 'relu'},
-                # 11
+                # [b,c,13,13]
                 {"name": 'conv2d', "adaptation": False, "meta": True,
                  "config": {"out-channels": channels, "in-channels": channels, "kernal": 3, "stride": 2,
                             "padding": 0}},
                 {"name": 'relu'},
-                # 5
+                # [b,c,6,6]
                 {"name": 'conv2d', "adaptation": False, "meta": True,
-                 "config": {"out-channels": channels, "in-channels": channels, "kernal": 3, "stride": 1,
+                 "config": {"out-channels": channels, "in-channels": channels, "kernal": 2, "stride": 2,
                             "padding": 0}},
                 {"name": 'relu'},
-                # 2
-                {"name": 'conv2d', "adaptation": False, "meta": True,
-                 "config": {"out-channels": channels, "in-channels": channels, "kernal": 3, "stride": 1,
-                            "padding": 0}},
-                {"name": 'relu'},
-
+                # [b,c,2,2]
 
                 {"name": 'flatten'},
                 # {"name": 'rotate'},
+                # [b,c,6,6]
+
                 {"name": 'rep'},
 
                 {"name": 'linear', "adaptation": True, "meta": True,
-                 "config": {"out": 64, "in":  channels}},
-
-
+                 "config": {"out": 10, "in": 3 * 3 * channels}},
 
 
             ]

@@ -128,6 +128,7 @@ class Learner(nn.Module):
 
             elif name == 'rep':
                 #print(f"{layer_counter} x.shape {x.shape}")
+                x = x.reshape(x.size(0), -1)
                 if rep:
                     return x
 
